@@ -1,0 +1,1 @@
+A playground PoC project for testing code with Cats and ScalaTest.
