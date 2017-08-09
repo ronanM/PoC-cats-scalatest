@@ -1,9 +1,15 @@
 package rm.catscalatest
 
-import cats.instances.{AnyValInstances, StringInstances}
-import cats.syntax.{EitherSyntax, OptionSyntax}
+import cats.Eq
+import cats.instances.AllInstances
+import cats.syntax.{AllSyntax, EqOps}
+import cats.tests.StrictCatsEquality
 import org.scalatest.FreeSpec
 
-trait MySpec extends FreeSpec with StrictCatsEquality with OptionSyntax with EitherSyntax //
- with AnyValInstances with StringInstances
+trait MySpec extends FreeSpec with StrictCatsEquality with AllInstances with AllSyntax {
+  // disable Eq syntax (by making `catsSyntaxEq` not implicit), since it collides
+  // with scalactic's equality
+  override def catsSyntaxEq[A: Eq](a: A): EqOps[A] =
+    new EqOps[A](a)
 
+}

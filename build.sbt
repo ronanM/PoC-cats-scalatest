@@ -1,6 +1,10 @@
-scalaVersion := "2.11.11"
+scalaVersion := "2.12.3"
 
-libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
+val catsV = "1.0.0-MF"
+val scalatestV = "3.0.3"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.3"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3" % "test"
+libraryDependencies += "org.typelevel" %% "cats-core" % catsV
+libraryDependencies += "org.typelevel" %% "cats-testkit" % catsV % Test
+
+libraryDependencies += "org.scalactic" %% "scalactic" % scalatestV
+libraryDependencies += "org.scalatest" %% "scalatest" % scalatestV % "test"
