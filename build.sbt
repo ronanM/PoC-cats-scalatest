@@ -7,7 +7,6 @@ val kittensV   = "1.0.0-M11"
 libraryDependencies += "org.typelevel" %% "cats-core"    % catsV
 libraryDependencies += "org.typelevel" %% "cats-testkit" % catsV % Test
 
-//libraryDependencies += "org.scalactic" %% "scalactic" % scalatestV
-libraryDependencies += "org.scalatest" %% "scalatest" % scalatestV % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % scalatestV % Test
 
 libraryDependencies += "org.typelevel" %% "kittens" % kittensV
