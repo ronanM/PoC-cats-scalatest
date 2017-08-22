@@ -1,5 +1,10 @@
 package rm.catscalatest
 
+import cats.Eq
+import cats.implicits._
+import cats.derived._
+import cats.derived.eq._
+
 class MyDataTest extends MySpec {
 
   "MyData Eq" in {
@@ -9,6 +14,9 @@ class MyDataTest extends MySpec {
     val either2: Either[String, Int] = 42.asRight[String]
     assert(either2 === 42.asRight)
 
-    assert(MyData("toto", 10.some) === MyData("toto", 101.some))
+    implicitly[Eq[MyData]]
+
+    assert(MyData("toto", 10.some) === MyData("toto", 10.some))
+    //assert(MyData("toto", 10.some) === MyData("toto", 101.some))
   }
 }
