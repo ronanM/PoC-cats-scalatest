@@ -1,10 +1,8 @@
 package rm.catscalatest
 
-//import cats.implicits._
-import cats.derived.eq._
-import cats.derived.eq.legacy._
-
 class MyDataTest extends MySpec {
+
+  implicit val myDataEq = cats.derive.eq[MyData]
 
   "MyData Eq" in {
     val either1: Either[String, (String, Int)] = ("a", 42).asRight[String]
